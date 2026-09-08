@@ -1,0 +1,144 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    background:#eef4ff;
+    color:#1f2937;
+}
+
+/* Header */
+
+.hero{
+    background:linear-gradient(135deg,#0f3d91,#2563eb);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h3{
+    font-weight:400;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:0.95;
+}
+
+/* Feature Cards */
+
+.features{
+    padding:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.feature-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-5px);
+}
+
+.feature-card .icon{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.feature-card h3{
+    color:#1d4ed8;
+    margin-bottom:10px;
+}
+
+/* Login Section */
+
+.login-section{
+    padding:30px 40px 60px;
+}
+
+.login-section h2{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:30px;
+}
+
+.login-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.login-card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.login-card:hover{
+    transform:translateY(-6px);
+}
+
+.login-card .icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.login-card h3{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+.login-card p{
+    color:#555;
+    margin-bottom:20px;
+    min-height:60px;
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.login-btn:hover{
+    background:#1d4ed8;
+}
+
+/* Footer */
+
+.footer{
+    background:#0f3d91;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+.footer p{
+    margin-top:5px;
+}
