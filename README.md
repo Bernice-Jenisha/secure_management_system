@@ -1,208 +1,149 @@
 # Secure Examination Management Portal
 
-A secure cloud-based examination question paper management system developed using **PHP, MySQL, Apache, and Blockchain concepts**. The project ensures secure creation, approval, storage, scheduling, and controlled release of competitive examination question papers such as **JEE, NEET, and GATE**.
+## Project Title
 
-This project was developed as a **Mini Project** for **Coimbatore Institute of Technology (CIT)**.
-
----
-
-## Project Overview
-
-The Secure Examination Management Portal provides a role-based system for managing confidential examination question papers. Different question setters upload separate sections of a paper, administrators verify and assemble the final paper, and exam centers receive access only during the scheduled examination window through OTP authentication.
-
-The system also records every important activity in audit logs and maintains blockchain hashes to detect tampering.
+**Secure Examination Management Portal Using Blockchain and OTP Authentication**
 
 ---
 
-## Key Features
+## Project Description
 
-* Role-based login system (Admin, Question Setter, Exam Center).
+The Secure Examination Management Portal is a web-based application developed to securely manage competitive examination question papers. The system prevents unauthorized access, modification, and leakage of question papers by implementing role-based access control, encrypted storage, blockchain-based integrity verification, OTP authentication, audit logging, and time-controlled paper release.
+
+The project supports multiple competitive examinations such as **JEE, NEET, and GATE**, along with multiple examination slots (Morning, Afternoon, Evening).
+
+---
+
+## Technologies / Tools Used
+
+| Technology / Tool  | Purpose                                    |
+| ------------------ | ------------------------------------------ |
+| PHP                | Backend development                        |
+| MySQL              | Database management                        |
+| HTML5              | Web page structure                         |
+| CSS3               | User interface styling                     |
+| JavaScript         | Countdown timer and OTP interactions       |
+| Apache             | Web server                                 |
+| XAMPP              | Local development environment              |
+| phpMyAdmin         | Database administration                    |
+| Git                | Version control                            |
+| GitHub             | Source code repository                     |
+| AWS EC2 (Ubuntu)   | Cloud deployment                           |
+| SHA-256            | Hash generation for integrity verification |
+| Blockchain Concept | Tamper detection using linked hashes       |
+
+---
+
+## Features
+
+* Role-Based Login (Admin, Question Setter, Exam Center)
 * Upload encrypted question paper sections.
-* Multiple exam support (JEE, NEET, GATE).
-* Multiple exam slots (Morning, Afternoon, Evening).
-* Admin approval workflow for uploaded sections.
-* Automatic generation of the final question paper after approval.
-* Blockchain ledger for integrity verification.
-* SHA-256 hash generation for encrypted files.
-* OTP authentication before downloading question papers.
-* Time-locked paper release with automatic 5-hour expiry.
-* Audit logs for monitoring user activities.
+* Multiple examination slots.
+* Admin approval workflow.
+* Automatic final question paper generation.
+* Blockchain ledger verification.
+* OTP authentication before paper download.
+* Time-locked paper release (5-hour access window).
+* Audit log monitoring.
 
 ---
 
-## Technologies Used
+## Steps to Install and Run the Project
 
-| Technology           | Purpose                  |
-| -------------------- | ------------------------ |
-| PHP                  | Backend Development      |
-| MySQL                | Database                 |
-| HTML5                | Structure                |
-| CSS3                 | User Interface           |
-| JavaScript           | Countdown Timer & OTP UI |
-| Apache               | Web Server               |
-| Blockchain (SHA-256) | Tamper Detection         |
-| AWS EC2 (Ubuntu)     | Cloud Hosting            |
-
----
-
-## User Roles
-
-### Administrator
-
-* Login to Admin Dashboard.
-* Approve uploaded question sections.
-* Generate final question paper.
-* Schedule examination release.
-* Verify blockchain ledger.
-* View audit logs.
-
-### Question Setter
-
-* Login to Setter Dashboard.
-* Upload encrypted question paper sections.
-* View uploaded sections and approval status.
-
-### Exam Center
-
-* Login to Exam Center Dashboard.
-* Generate and verify OTP.
-* Download question paper during release window only.
-
----
-
-## Project Workflow
-
-1. Question Setter uploads **Part A**, **Part B**, and **Part C**.
-2. Files are encrypted and their SHA-256 hashes are stored.
-3. Admin approves uploaded sections.
-4. Admin generates the final question paper.
-5. Admin schedules release time.
-6. Exam Center verifies OTP.
-7. Question paper becomes available only within the scheduled time window.
-8. Blockchain verification detects tampering.
-9. Audit logs record every activity.
-
----
-
-## Project Structure
-
-```text
-secure_management_system/
-│
-├── admin/
-├── setter/
-├── center/
-├── blockchain/
-├── encryption/
-├── includes/
-├── css/
-├── js/
-├── storage/
-│   └── encrypted/
-├── index.php
-├── login.php
-├── logout.php
-└── README.md
-```
-
----
-
-## Database Setup
-
-1. Create a MySQL database named `secure_exam_db`.
-2. Import the provided SQL file into MySQL.
-3. Update database credentials in:
-
-```php
-includes/db.php
-```
-
-Example:
-
-```php
-$conn = mysqli_connect(
-    "localhost",
-    "examuser",
-    "Exam@123",
-    "secure_exam_db"
-);
-```
-
----
-
-## Installation (Local - XAMPP)
+### Local Installation (XAMPP)
 
 1. Install XAMPP.
-2. Copy the project into:
-
-```text
-C:\xampp\htdocs\secure_management_system
-```
-
+2. Copy the project folder into:
+   `C:\xampp\htdocs\secure_management_system`
 3. Start Apache and MySQL.
-4. Import the SQL database using phpMyAdmin.
-5. Open:
+4. Import `secure_exam_db.sql` into phpMyAdmin.
+5. Update `includes/db.php` if required.
+6. Open:
+   `http://localhost/secure_management_system/`
 
-```text
-http://localhost/secure_management_system/
-```
+### AWS Deployment
+
+1. Launch an Ubuntu EC2 instance.
+2. Install Apache, PHP, and MySQL.
+3. Clone the GitHub repository into `/var/www/html/`.
+4. Import `secure_exam_db.sql`.
+5. Configure `includes/db.php`.
+6. Access the project using the EC2 Public IPv4 address.
 
 ---
 
-## AWS Deployment
+## Project Structure / Modules
 
-The project is deployed on an **AWS EC2 Ubuntu Server** using:
+| Module               | Purpose                                                                      |
+| -------------------- | ---------------------------------------------------------------------------- |
+| `admin/`             | Admin dashboard, approvals, scheduling, blockchain verification, audit logs. |
+| `setter/`            | Upload question paper sections and view upload status.                       |
+| `center/`            | OTP verification and secure question paper download.                         |
+| `blockchain/`        | Blockchain block creation and chain verification.                            |
+| `encryption/`        | Encryption and decryption of question paper files.                           |
+| `includes/`          | Database connection, authentication, sidebar, logging helpers.               |
+| `css/`               | Stylesheets for login, dashboard, and homepage.                              |
+| `js/`                | Countdown timer for release and expiry time.                                 |
+| `storage/encrypted/` | Stores encrypted question paper files and generated papers.                  |
 
-* Apache Web Server
-* PHP
-* MySQL
-* GitHub Repository
+---
 
-Project URL format:
+## Sample Input
 
-```text
-http://<EC2-Public-IP>/secure_management_system/
-```
+**Admin**
+
+* Exam: JEE
+* Slot: Morning
+
+**Question Setter**
+
+* Upload Part A (`partA.pdf`)
+* Upload Part B (`partB.pdf`)
+* Upload Part C (`partC.pdf`)
+
+**Exam Center**
+
+* Generate OTP.
+* Enter OTP for verification.
+* Download paper during release window.
+
+---
+
+## Sample Output
+
+The application produces:
+
+* Homepage with three login portals.
+* Admin Dashboard with statistics.
+* Question Setter upload page.
+* Blockchain verification showing **Verified**.
+* OTP verification page.
+* Secure download portal with countdown timer.
+* Audit log records of all user activities.
+
+(Screenshots are available in the `sample_output` folder.)
 
 ---
 
 ## Login Credentials
 
-### Administrator
-
-* **Email:** [admin@cit.edu.in](mailto:admin@cit.edu.in)
-* **Password:** admin123
-
-### Question Setter
-
-* **Email:** [alice@cit.edu.in](mailto:alice@cit.edu.in)
-* **Password:** setter123
-
-### Exam Center
-
-* **Email:** [center@cit.edu.in](mailto:center@cit.edu.in)
-* **Password:** center123
+| Role            | Email                                         | Password  |
+| --------------- | --------------------------------------------- | --------- |
+| Administrator   | [admin@cit.edu.in](mailto:admin@cit.edu.in)   | admin123  |
+| Question Setter | [alice@cit.edu.in](mailto:alice@cit.edu.in)   | setter123 |
+| Exam Center     | [center@cit.edu.in](mailto:center@cit.edu.in) | center123 |
 
 ---
 
-## Security Features
+## Security Mechanisms Implemented
 
-* AES encrypted question paper storage.
-* SHA-256 hash generation for each uploaded section.
-* Blockchain-based integrity verification.
-* OTP-based secure paper download.
-* Automatic paper expiry after 5 hours.
-* Audit logging for every critical operation.
-
----
-
-## Future Enhancements
-
-* Multi-factor authentication.
-* Email/SMS OTP delivery.
-* Cloud storage for encrypted papers.
-* Digital signatures for question setters.
-* AI-based anomaly detection for suspicious activities.
+* Role-Based Access Control (RBAC)
+* SHA-256 Hash Generation
+* Blockchain-Based Integrity Verification
+* OTP Authentication
+* Time-Locked Question Paper Release
+* Audit Logging
+* Encrypted File Storage
 
 ---
 
@@ -214,10 +155,4 @@ B.E. Computer Science and Engineering
 
 Coimbatore Institute of Technology (CIT)
 
-Mini Project – 2026
-
----
-
-## License
-
-This project is developed for academic and educational purposes.
+Micro Project – 2026
