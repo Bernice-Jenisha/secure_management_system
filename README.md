@@ -123,6 +123,8 @@ The application produces:
 
 (Screenshots are available in the `sample_output` folder.)
 
+The video demo of the project:
+https://drive.google.com/file/d/1nPC7PHTxm7q_TThK0Ujp5OWfooTrJ5w5/view?usp=sharing
 ---
 
 ## Login Credentials
